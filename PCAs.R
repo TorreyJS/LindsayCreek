@@ -3,13 +3,12 @@
 #
 # 5/14/25
 ################################################################################
-# use "dat4c" or "full data_TS.xlsx"
+# use "LC_FullData.xlsx"
 
-dat <- dat4c
-dat <- read.xlsx("full data_TS.xlsx")
+dat <- read.xlsx("LC_FullData.xlsx")
 
-#### Laurel wants a PCA: 
-# make sure all variables are numeric (no NAs, no metadata)
+#### PCA: 
+# make sure all variables are numeric (no NAs, no metadata)--check column #s
 dat_pca <- dat[,c(6:14,16,17,26:37)]
 dat_pca <- na.omit(dat_pca)
 
@@ -170,4 +169,5 @@ str(dat_scale)
 adonis_result <- adonis2(dat_scale ~ month, data = dat_meta, method = "euclidean",
                          permutations = 999)
 adonis_result # R2 = 49.7% of variance explained, P<0.001 = positions differ
+
 # for month: 0.219 and p=0.027
