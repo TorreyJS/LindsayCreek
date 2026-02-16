@@ -4,18 +4,16 @@
 # 5/9/25
 ################################################################################
 library(dplyr);library(plotrix);library(openxlsx);library(ggplot2)
-# use "dat4c" or "full data_TS.xlsx" (same file, depends what's loaded)
+# use "LC_FullData.xlsx"
 
 #install.packages("MetBrewer")  # Only if you haven't installed it yet
 library(MetBrewer)
-
-setwd("C:/Users/torreys/OneDrive - University of Idaho/Mentor and Collab/Josie")
 
 # View the Renoir palette (default is 10 colors)
 renoir_colors <- met.brewer("Renoir")
 
 # dat <- dat4c
-dat <- read.xlsx("full data_TS.xlsx")
+dat <- read.xlsx("LC_FullData.xlsx")
 
 colnames(dat)
 
@@ -564,4 +562,5 @@ pairs(emm, adjust = "tukey")
 
 # Get letters of significance
 cld(emm, Letters = letters, adjust = "tukey")
+
 
