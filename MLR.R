@@ -14,49 +14,7 @@ library(ggplot2)
 library(openxlsx)
 
 # bring in ALL data (including precip)
-dat1 <- read.xlsx("full data_TS.xlsx")
-mst <- read.xlsx("MST_scaled_2_or_more_reps.xlsx") # trust this MST, not the dat1
-precip <- read.xlsx("PRISM/monthly temp and precip.xlsx")
-shan <- read.xlsx("Shannon Diversity.xlsx")
-
-# clean up each data input:
-dat1 <- dat1[,c(1:8,10:14,16:19,26:37)] # remove MST, NH4, DO
-dat1 <- dat1 %>%
-  mutate(month = case_when(month == "May" ~ 5,
-                           month == "June" ~ 6,
-                           month == "July" ~ 7,
-                           month == "Aug" ~ 8,
-                           month == "Sep" ~ 9,
-                           month == "Oct" ~ 10))
-
-mst <- mst %>%
-  group_by(month, site, Target.Name) %>%
-  summarise(mean_copies = mean(copies_per_100, na.rm = T)) %>%
-  pivot_wider(names_from = Target.Name, values_from = mean_copies)
-mst[is.na(mst)] <- 0
-
-precip <- precip %>%
-  pivot_wider(names_from = type, values_from = value) %>%
-  mutate(position = case_when(site_id == "MS" ~ "MAIN",
-                              TRUE ~ site_id))
-
-shan <- shan %>%
-  mutate(month = case_when(month == "May" ~ 5,
-                           month == "June" ~ 6,
-                           month == "July" ~ 7,
-                           month == "Aug" ~ 8,
-                           month == "Sep" ~ 9,
-                           month == "Oct" ~ 10))
-
-## merge data
-final <- left_join(dat1, mst, by = c("position" = "site", "month"))
-
-final2 <- left_join(final, precip, by = c("position", "month"))
-
-final3 <- left_join(final2, shan, by = c("position", "month"))
-
-write.xlsx(final3, "ALLDATA_102025.xlsx")
-final3 <- read.xlsx("ALLDATA_102025.xlsx")
+dat1 <- read.xlsx("LC_FulLData.xlsx")
 
 # option 1: remove May -- no microbial data
 #nomay <- final2 %>% filter(month != 5)
@@ -66,7 +24,7 @@ final3 <- read.xlsx("ALLDATA_102025.xlsx")
 ### pull out only certain columns
 # i.e., for NO3 look at only chem data (bac rel abund sums to 1 = collinear)
 # also--no microbe data for May, so ONLY biogeochem data!
-test2 <- final2[,c(6:15,34,35)]
+test2 <- dat1[,c(6:15,34,35)]
 test2 <- na.omit(test2) # lose 2 obs
 
 # define variables
@@ -452,3 +410,4 @@ nomay <- nomay %>%
 
 summary(lm(K_strat ~ NO3, data = nomay)) # p = 0.08
 summary(lm(r_strat ~ NO3, data = nomay)) # p = 0.003, R2 = 0.25
+
