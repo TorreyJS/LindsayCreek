@@ -3,26 +3,17 @@
 #
 # 5/7/25
 ################################################################################
-# use "dat4c" or "full data_TS.xlsx"
-
-dat <- dat4c
-dat <- read.xlsx("full data_TS.xlsx")
-dat <- read.xlsx("ALLDATA_102025.xlsx")
+# use "LC_FullData.xlsx"
+dat <- read.xlsx("LC_FullData.xlsx")
 
 # model structure is simple: lm(y ~ site + month, data = data)
-
-### BUT FIRST: data clean-up steps
-
-# we don't have reps for most variables (exp OR inst)
-# can group by position in watershed and/or season--then do ANOVA
-## more informative: regression of two variables (e.g. DOC, TN)
 
 ################################################################################
 # stats:
 # model structure is simple: lm(y ~ site + month, data = data)
 colnames(dat)
 # variables: discharge, turbidity, temp, DO, DOsat, cond, ph, DOC, TN, NO3, PO4,
-# coliform, Ecoli, Mean_Cow, Mean_Human, Actinobacteriota, Bacteroidota, Bdellovibrionota,
+# coliform, Ecoli, CowM2, HF183, Actinobacteriota, Bacteroidota, Bdellovibrionota,
 # Cyanobacteria, Firmicutes, Myxococcota, Patescibacteria, Planctomycetota, Proteobacteria,
 # Rare, Verrucomicrobiota, rk_ratio, ShanDiv
 
@@ -30,7 +21,7 @@ colnames(dat)
 ##### look at the distribution for each variable:
 library(tidyverse)
 
-# Replace `dat` with your dataframe
+# check to make sure columns are correct
 dat_long <- dat %>%
   select(c(6:14, 16:21,26:37)) %>%
   pivot_longer(everything(), names_to = "variable", values_to = "value")
@@ -44,7 +35,7 @@ ggplot(dat_long, aes(x = value)) +
 # normal-ish: actino, bact, bdello, DOC, firm, human, no3, pates, ph, plancto, po4, proteo, rare, temp, tn, turbid, verruco
 # right skew/log: cyano, discharge, ecoli, myxo, rK
 # left skew: coliform, DO, DOsat, shandiv
-# bimodal: cond, meancow
+# bimodal: cond, cow
 
 ## what variables are correlated?
 library(GGally)
@@ -334,3 +325,4 @@ dis <- dat %>%
 mod <- (lm(rk_ratio ~ position + month, data = dat))
 anova(mod) # position***, month p = 0.54
 emmeans(mod, pairwise ~ position) # 1>3,4,5,6 
+
