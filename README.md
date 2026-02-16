@@ -1,20 +1,20 @@
-#Data & code for: Microbial and biogeochemical responses to stream water fecal and nutrient contamination\
+# Data & code for: Microbial and biogeochemical responses to stream water fecal and nutrient contamination  
 
-Torrey Stephenson, University of Idaho Department of Soil and Water Systems, Moscow, ID
-Josie Brown, University of Idaho Department of Soil and Water Systems, Moscow, ID
-Jason Williams, The Cadmus Group LLC, Waltham, MA
-Jane Lucas, Cary Institute of Ecosystem Studies, Millbrook, NY
-Sujata Connell, Idaho Department of Environmental Quality, Lewiston, ID
-David McIntyre, Idaho Department of Environmental Quality, Lewiston, ID
-Alan Kolok, University of Idaho Department of Fish and Wildlife Sciences, Moscow, ID
-Jenna Fortier, Idaho Department of Environmental Quality, Lewiston, ID
-Laurel Lynch, University of Idaho Department of Soil and Water Systems, Moscow, ID\\
+Torrey Stephenson, University of Idaho Department of Soil and Water Systems, Moscow, ID  
+Josie Brown, University of Idaho Department of Soil and Water Systems, Moscow, ID  
+Jason Williams, The Cadmus Group LLC, Waltham, MA  
+Jane Lucas, Cary Institute of Ecosystem Studies, Millbrook, NY  
+Sujata Connell, Idaho Department of Environmental Quality, Lewiston, ID  
+David McIntyre, Idaho Department of Environmental Quality, Lewiston, ID  
+Alan Kolok, University of Idaho Department of Fish and Wildlife Sciences, Moscow, ID  
+Jenna Fortier, Idaho Department of Environmental Quality, Lewiston, ID  
+Laurel Lynch, University of Idaho Department of Soil and Water Systems, Moscow, ID\
 
-##Description of the data\
-Grab samples were collected monthly from six sites along Lindsay Creek from May to October 2022 (n = 36 samples) to capture seasonal variation in hydrology, biogeochemistry, and potential sources of nitrate and fecal contamination. Four sites were located on the main stem (Sites 1, 2, 4, and 6) and two on small tributaries (Sites 3 and 5) to capture multiple land use types.\\
+## Description of the data  
+Grab samples were collected monthly from six sites along Lindsay Creek from May to October 2022 (n = 36 samples) to capture seasonal variation in hydrology, biogeochemistry, and potential sources of nitrate and fecal contamination. Four sites were located on the main stem (Sites 1, 2, 4, and 6) and two on small tributaries (Sites 3 and 5) to capture multiple land use types.  
 
-##Files and variables\
-###File: LC_site_coords.csv\
+## Files and variables  
+### File: LC_site_coords.csv  
 Description: Coordinates and elevation for the sample sites.  
 Variables  
 •	site_abbrev: site name for lab use only\
@@ -22,9 +22,9 @@ Variables
 •	latitude:\ 
 •	longitude:\
 •	elev_ft: elevation of site in feet\
-•	elev_m: elevation of site in meters\\
+•	elev_m: elevation of site in meters\
 
-###File: LC_FullData.xlsx\
+### File: LC_FullData.xlsx  
 Description: All data used in analysis\
 Variables\
 •	month: month sample was collected, from May (5) to October (10)  
@@ -52,8 +52,4 @@ Variables\
 •	precip_mm: Units = mm. Monthly precipitation total, obtained from 4-km resolution PRISM data.  
 •	mean_temp: Units = degrees Celsius. Average air temperature, obtained from 4-km resolution PRISM data.  
 •	ShanDiv: Shannon Diversity of bacterial community.   
-
-##Access information/
-Other publicly accessible locations of the data:
-•	https://github.com/TorreyJS/LindsayCreek
 
