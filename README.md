@@ -1,4 +1,5 @@
-Data & code for: Microbial and biogeochemical responses to stream water fecal and nutrient contamination
+##Data & code for: Microbial and biogeochemical responses to stream water fecal and nutrient contamination##
+
 Torrey Stephenson, University of Idaho Department of Soil and Water Systems, Moscow, ID
 Josie Brown, University of Idaho Department of Soil and Water Systems, Moscow, ID
 Jason Williams, The Cadmus Group LLC, Waltham, MA
@@ -9,7 +10,7 @@ Alan Kolok, University of Idaho Department of Fish and Wildlife Sciences, Moscow
 Jenna Fortier, Idaho Department of Environmental Quality, Lewiston, ID
 Laurel Lynch, University of Idaho Department of Soil and Water Systems, Moscow, ID
 
-Description of the data
+#Description of the data#
 Grab samples were collected monthly from six sites along Lindsay Creek from May to October 2022 (n = 36 samples) to capture seasonal variation in hydrology, biogeochemistry, and potential sources of nitrate and fecal contamination. Four sites were located on the main stem (Sites 1, 2, 4, and 6) and two on small tributaries (Sites 3 and 5) to capture multiple land use types.
 Files and variables
 File: LC_site_coords.csv
