@@ -5,7 +5,7 @@
 ################################################################################
 library(openxlsx)
 
-vars <- read.xlsx("ALLDATA_102025.xlsx")
+vars <- read.xlsx("LC_FullData.xlsx.xlsx")
 
 std_test <- vars %>%
   mutate(site_grp = case_when(position == "HW" ~ "Headwaters",
@@ -58,3 +58,4 @@ t.test(Bact_NO3_ratio ~ site_grp, data = std_test) # t(5.01) = 2.33, p = 0.07
 t.test(Patescibacteria ~ site_grp, data = std_test) # t(6.80) = -2.88, p < 0.05
 std_test$Pates_NO3_ratio <- std_test$Patescibacteria / std_test$NO3
 t.test(Pates_NO3_ratio ~ site_grp, data = std_test) # t(5.09) = 2.61, p < 0.05
+
